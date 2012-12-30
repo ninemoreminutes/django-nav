@@ -60,12 +60,12 @@ class NavGroups(object):
         """
             Register the given Nav
         """
-        try:
-            nav = nav()
-        except TypeError:
-            pass
+        #try:
+        #    nav = nav()
+        #except TypeError:
+        #    pass
 
-        if not isinstance(nav, NavType):
+        if not issubclass(nav, NavType):
             raise TypeError("You can only register a Nav not a %r" % nav)
 
         if not self._groups.has_key(nav.nav_group):

@@ -62,7 +62,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
 try:
     version = __import__('django_nav').get_version()
 except ImportError:
-    version = '1 4 1 beta'
+    raise#version = '1 4 1 beta'
 
 setup(
     name = "django_nav",

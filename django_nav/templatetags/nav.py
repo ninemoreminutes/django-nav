@@ -61,13 +61,13 @@ class GetNavNode(template.Node):
         self.context[self.var_name] = []
 
         for nav in nav_groups[self.nav_group]:
+            nav = nav()
             if self.args:
                 nav.args = [resolve(a, self.context) for a in self.args]
 
             if self.kwargs:
-                for key, value in self.kwargs.iteritems():
-                    self.kwargs[key] = resolve(value, self.context)
-                nav.kwargs = self.kwargs
+                nav.kwargs = dict((key, resolve(value, self.context)) for \
+                                  key, value in self.kwargs.iteritems())
 
             if self.check_conditional(nav):
                 continue
@@ -85,10 +85,11 @@ class GetNavNode(template.Node):
         for option in nav_options:
             option = option()
             if self.args:
-                option.args = self.args
+                option.args = [resolve(a, self.context) for a in self.args]
 
             if self.kwargs:
-                option.kwargs = self.kwargs
+                option.kwargs = dict((key, resolve(value, self.context)) for \
+                                     key, value in self.kwargs.iteritems())
 
             if self.check_conditional(option):
                 continue

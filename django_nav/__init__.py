@@ -24,7 +24,7 @@ __all__ = ['nav_groups', 'Nav', 'NavOption']
 
 from django_nav.base import nav_groups, Nav, NavOption
 
-VERSION = (0, 6, 0, 'beta', 2)
+VERSION = (0, 6, 0, 'beta', 3)
 
 def autodiscover():
     """
