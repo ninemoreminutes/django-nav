@@ -73,7 +73,6 @@ setup(
     description = 'An extensible, non intrusive, fast system for generation navigation groupings.',
     keywords = 'django, navigation, navtree, nav, menu',
     download_url = 'http://django-nav.googlecode.com/files/',
-    install_requires = ['django>1.2'],
     packages = packages,
     cmdclass = cmdclasses,
     data_files = data_files,
